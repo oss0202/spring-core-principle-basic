@@ -6,8 +6,8 @@ public class MemberServiceImpl implements MemberService{
     private final MemberRepository memberRepository;// = new MemoryMemberRepository();
 
     //생성자 주입으로 변경
-    public MemberServiceImpl(MemoryMemberRepository memoryMemberRepository) {
-        this.memberRepository = memoryMemberRepository;
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @Override
