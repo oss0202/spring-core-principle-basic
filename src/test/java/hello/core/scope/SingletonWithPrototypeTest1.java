@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.inject.Provider;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -44,10 +45,10 @@ public class SingletonWithPrototypeTest1 {
     static class ClientBean{
 
         @Autowired
-        private ObjectProvider<PrototypeBean> prototypeBeansProvider;
+        private Provider<PrototypeBean> prototypeBeansProvider;
 
         public int logic(){
-            PrototypeBean prototypeBean = prototypeBeansProvider.getObject();
+            PrototypeBean prototypeBean = prototypeBeansProvider.get();
             prototypeBean.addCount();
             return prototypeBean.getCount();
         }
